@@ -39,8 +39,8 @@ jobs:
           type=ref,event=branch
 
     - name: Add short SHA information
-        id: commit
-        run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+      id: commit
+      run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
 
     - name: Setup Docker Buildx
       uses: docker/setup-buildx-action@v2
