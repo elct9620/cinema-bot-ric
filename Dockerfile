@@ -53,5 +53,5 @@ USER ruby
 WORKDIR ${APP_ROOT}
 
 EXPOSE 3000
-ENTRYPOINT ["bin/rails"]
-CMD ["server", "-b", "0.0.0.0"]
+ENTRYPOINT ["bin/aws_lambda_ric"]
+CMD ["config/environment.Lamby.cmd"]

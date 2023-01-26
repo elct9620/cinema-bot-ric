@@ -72,6 +72,7 @@ GEM
       activerecord (>= 3.2, < 8.0)
       rake (>= 10.4, < 14.0)
     ast (2.4.2)
+    aws_lambda_ric (2.0.0)
     bankai (0.13.1)
       rails (>= 7.0.0)
     bootsnap (1.16.0)
@@ -118,6 +119,8 @@ GEM
     io-console (0.6.0)
     irb (1.6.2)
       reline (>= 0.3.0)
+    lamby (4.0.1)
+      rack
     launchy (2.5.2)
       addressable (~> 2.8)
     letter_opener (1.8.1)
@@ -277,6 +280,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
+  aws_lambda_ric
   bankai
   bootsnap
   boxing
@@ -288,6 +292,7 @@ DEPENDENCIES
   dotenv-rails
   factory_bot_rails
   faker
+  lamby
   letter_opener
   oj
   openbox
