@@ -51,6 +51,9 @@ group :development, :test do
   gem 'simplecov-cobertura', require: false
 
   gem 'bankai'
+
+  gem 'boxing'
+  gem 'openbox'
 end
 
 group :development do

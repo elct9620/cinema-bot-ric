@@ -76,6 +76,9 @@ GEM
       rails (>= 7.0.0)
     bootsnap (1.16.0)
       msgpack (~> 1.2)
+    boxing (0.9.0)
+      bundler (~> 2.0)
+      thor (~> 1.0)
     brakeman (5.4.0)
     builder (3.2.4)
     bullet (7.0.7)
@@ -145,6 +148,9 @@ GEM
     nokogiri (1.14.0-x86_64-darwin)
       racc (~> 1.4)
     oj (3.13.23)
+    openbox (0.5.1)
+      dotenv
+      thor (~> 1.0)
     overcommit (0.60.0)
       childprocess (>= 0.6.3, < 5)
       iniparse (~> 1.4)
@@ -273,6 +279,7 @@ DEPENDENCIES
   annotate
   bankai
   bootsnap
+  boxing
   brakeman
   bullet
   bundler-audit
@@ -283,6 +290,7 @@ DEPENDENCIES
   faker
   letter_opener
   oj
+  openbox
   overcommit
   pry-rails
   puma (~> 5.0)
