@@ -41,8 +41,8 @@ jobs:
       id: meta
       uses: docker/metadata-action@v4
       env:
-        REGISTRY: ${{ steps.login-ecr-public.outputs.registry }}
-        IMAGE_NAME: cinema-bot-ric/rails
+        REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        IMAGE_NAME: cinema-bot-ric
       with:
         images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
         tags: |
