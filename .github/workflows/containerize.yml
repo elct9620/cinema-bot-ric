@@ -1,6 +1,7 @@
 name: Containerize
 
 on:
+  workflow_call:
   push:
     branches: [ main ]
 
