@@ -36,7 +36,7 @@ jobs:
       uses: docker/metadata-action@v4
       env:
         REGISTRY: ${{ steps.login-ecr-public.outputs.registry }}
-        IMAGE_NAME: aotoki/cinema-bot-ric
+        IMAGE_NAME: u5w1x2n3/cinema-bot-ric
       with:
         images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
         tags: |
