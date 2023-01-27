@@ -40,11 +40,10 @@ jobs:
     - name: Extract metadata (tags, labels) for Docker
       id: meta
       uses: docker/metadata-action@v4
-      env:
-        REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        IMAGE_NAME: cinema-bot-ric
       with:
-        images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+        images: |
+          ${{ steps.login-ecr.outputs.registry }}/cinema-bot-ric
+          ghcr.io/${{ github.repository }}
         tags: |
           type=sha
           type=semver,pattern={{version}}
