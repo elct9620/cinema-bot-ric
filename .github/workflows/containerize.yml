@@ -10,6 +10,7 @@ env:
 
 permissions:
   id-token: write
+  packages: write
   contents: read
 
 jobs:
@@ -23,20 +24,18 @@ jobs:
       uses: aws-actions/configure-aws-credentials@v1
       with:
         role-to-assume: arn:aws:iam::609231472294:role/cinema-bot-ric_role@github_actions
-        aws-region: us-east-1 # Public Repository should use us-east-1
+        aws-region: ap-northeast-1
 
     - name: Login to Amazon ECR Public
-      id: login-ecr-public
+      id: login-ecr
       uses: aws-actions/amazon-ecr-login@v1
-      with:
-        registry-type: public
 
     - name: Extract metadata (tags, labels) for Docker
       id: meta
       uses: docker/metadata-action@v4
       env:
         REGISTRY: ${{ steps.login-ecr-public.outputs.registry }}
-        IMAGE_NAME: u5w1x2n3/cinema-bot-ric
+        IMAGE_NAME: cinema-bot-ric
       with:
         images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
         tags: |
