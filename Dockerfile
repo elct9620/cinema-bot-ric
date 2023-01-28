@@ -42,6 +42,11 @@ ENV APP_ROOT=$APP_ROOT
 
 COPY . ${APP_ROOT}
 
+ARG REVISION
+ENV REVISION $REVISION
+ENV COMMIT_SHORT_SHA $REVISION
+RUN echo "${REVISION}" > ${APP_ROOT}/REVISION
+
 # Apply Execute Permission
 RUN adduser -h ${APP_ROOT} -D -s /bin/nologin ruby ruby && \
     chown ruby:ruby ${APP_ROOT} && \
