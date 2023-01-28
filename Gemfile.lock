@@ -72,6 +72,40 @@ GEM
       activerecord (>= 3.2, < 8.0)
       rake (>= 10.4, < 14.0)
     ast (2.4.2)
+    aws-eventstream (1.2.0)
+    aws-partitions (1.701.0)
+    aws-record (2.10.1)
+      aws-sdk-dynamodb (~> 1.18)
+    aws-sdk-core (3.170.0)
+      aws-eventstream (~> 1, >= 1.0.2)
+      aws-partitions (~> 1, >= 1.651.0)
+      aws-sigv4 (~> 1.5)
+      jmespath (~> 1, >= 1.6.1)
+    aws-sdk-dynamodb (1.81.0)
+      aws-sdk-core (~> 3, >= 3.165.0)
+      aws-sigv4 (~> 1.1)
+    aws-sdk-rails (3.7.0)
+      aws-record (~> 2)
+      aws-sdk-ses (~> 1)
+      aws-sdk-sesv2 (~> 1)
+      aws-sdk-sqs (~> 1)
+      aws-sessionstore-dynamodb (~> 2)
+      concurrent-ruby (~> 1)
+      railties (>= 5.2.0)
+    aws-sdk-ses (1.49.0)
+      aws-sdk-core (~> 3, >= 3.165.0)
+      aws-sigv4 (~> 1.1)
+    aws-sdk-sesv2 (1.31.0)
+      aws-sdk-core (~> 3, >= 3.165.0)
+      aws-sigv4 (~> 1.1)
+    aws-sdk-sqs (1.53.0)
+      aws-sdk-core (~> 3, >= 3.165.0)
+      aws-sigv4 (~> 1.1)
+    aws-sessionstore-dynamodb (2.0.1)
+      aws-sdk-dynamodb (~> 1)
+      rack (~> 2)
+    aws-sigv4 (1.5.2)
+      aws-eventstream (~> 1, >= 1.0.2)
     aws_lambda_ric (2.0.0)
     bankai (0.13.1)
       rails (>= 7.0.0)
@@ -119,6 +153,7 @@ GEM
     io-console (0.6.0)
     irb (1.6.2)
       reline (>= 0.3.0)
+    jmespath (1.6.2)
     lamby (4.0.1)
       rack
     launchy (2.5.2)
@@ -283,6 +318,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
+  aws-sdk-rails
   aws_lambda_ric
   bankai
   bootsnap

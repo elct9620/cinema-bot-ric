@@ -30,6 +30,7 @@ gem 'bootsnap', require: false
 # gem "rack-cors"
 
 gem 'aws_lambda_ric'
+gem 'aws-sdk-rails'
 gem 'lamby'
 
 group :development, :test do
