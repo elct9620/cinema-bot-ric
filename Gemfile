@@ -57,7 +57,6 @@ group :development, :test do
   gem 'bankai'
 
   gem 'boxing'
-  gem 'openbox'
 end
 
 group :development do

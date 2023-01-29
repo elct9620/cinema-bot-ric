@@ -188,9 +188,6 @@ GEM
     nokogiri (1.14.0-x86_64-linux)
       racc (~> 1.4)
     oj (3.13.23)
-    openbox (0.5.1)
-      dotenv
-      thor (~> 1.0)
     overcommit (0.60.0)
       childprocess (>= 0.6.3, < 5)
       iniparse (~> 1.4)
@@ -334,7 +331,6 @@ DEPENDENCIES
   lamby
   letter_opener
   oj
-  openbox
   overcommit
   pry-rails
   puma (~> 5.0)
