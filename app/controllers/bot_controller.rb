@@ -14,7 +14,7 @@ class BotController < ApplicationController
   def debug
     raise Unauthorized unless ENV['DEBUG_TOKEN'] == params['_token']
 
-    NotificationMailer.debug.deliver_now
+    NotificationMailer.debug.deliver_later
     render json: { ok: true }
   end
 end
