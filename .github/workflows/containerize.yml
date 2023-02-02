@@ -16,6 +16,8 @@ permissions:
 jobs:
   build-and-push-image:
     runs-on: ubuntu-latest
+    outputs:
+      sha-tag: ${{ fromJSON(steps.meta.outputs.json).tags[1] }}
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
@@ -69,3 +71,13 @@ jobs:
         provenance: false
         build-args: |
             REVISION=${{ steps.commit.outputs.sha_short }}
+
+  trigger-deployment:
+    needs: build-and-push-image
+    permissions:
+      id-token: write
+      contents: read
+    uses: ./.github/workflows/deployment.yml
+    with:
+      image: ${{ needs.build-and-push-image.outputs.sha-tag }}
+    secrets: inherit

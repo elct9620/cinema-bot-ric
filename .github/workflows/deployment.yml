@@ -50,6 +50,3 @@ jobs:
 
     - name: Deploy
       run: npx cdk deploy --require-approval never --parameters CinemaBotIamgeTag=${{ inputs.version }}
-
-
-
