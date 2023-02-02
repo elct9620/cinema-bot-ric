@@ -1,0 +1,53 @@
+name: Deployment
+
+on:
+  workflow_call:
+    inputs:
+      version:
+        required: true
+        type: string
+
+  workflow_dispatch:
+    inputs:
+      version:
+        required: true
+        type: string
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy:
+    name: Deploy to Lambda
+    runs-on: ubuntu-latest
+    environment: production
+    defaults:
+      working-directory: ./stack
+    steps:
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        role-to-assume: arn:aws:iam::609231472294:role/cinema-bot-ric_role@github_actions
+        aws-region: ap-northeast-1
+
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Setup Node
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+        cache: 'npm'
+
+    - name: Setup CDK
+      run: npm install
+
+    - name: Synth
+      run: npx cdk synth
+
+    - name: Deploy
+      run: npx cdk deploy --require-approval never --parameters CinemaBotImageTag=${{ inputs.version }}
+
+
+
