@@ -18,18 +18,18 @@ export class Rails extends Construct {
     super(scope, id)
     this._environment = environment || {}
 
-    this.env = new CfnParameter(this, "RailsEnv", {
+    this.env = new CfnParameter(scope, `${id}RailsEnv`, {
       default: 'production',
       allowedValues: ['production']
     })
 
-    this.key = new CfnParameter(this, "RailsMasterKey", {
+    this.key = new CfnParameter(scope, `${id}RailsMasterKey`, {
       noEcho: true,
       minLength: 1
     })
 
-    this.imageName = new CfnParameter(this, "ImageName")
-    this.imageTag = new CfnParameter(this, "IamgeTag", { default: 'main' })
+    this.imageName = new CfnParameter(scope, `${id}ImageName`)
+    this.imageTag = new CfnParameter(scope, `${id}IamgeTag`, { default: 'main' })
 
     this.repository = ecr.Repository.fromRepositoryName(this, "RailsRepository", this.imageName.valueAsString)
   }
