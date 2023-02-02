@@ -1,2 +1,2 @@
 queues:
-  default: <%= ENV['DEFAULT_SQS_URL'] %>
+  default: <%= ENV['SQS_URL'] %>
