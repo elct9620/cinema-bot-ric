@@ -23,7 +23,8 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     defaults:
-      working-directory: ./stack
+      run:
+        working-directory: ./stack
     steps:
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1
