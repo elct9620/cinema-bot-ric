@@ -49,7 +49,7 @@ jobs:
       run: npx cdk synth
 
     - name: Deploy
-      run: npx cdk deploy --require-approval never --parameters CinemaBotImageTag=${{ inputs.version }}
+      run: npx cdk deploy --require-approval never --parameters CinemaBotIamgeTag=${{ inputs.version }}
 
 
 
