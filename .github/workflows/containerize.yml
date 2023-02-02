@@ -79,5 +79,5 @@ jobs:
       contents: read
     uses: ./.github/workflows/deployment.yml
     with:
-      image: ${{ needs.build-and-push-image.outputs.sha-tag }}
+      version: ${{ needs.build-and-push-image.outputs.sha-tag }}
     secrets: inherit
