@@ -17,7 +17,7 @@ jobs:
   build-and-push-image:
     runs-on: ubuntu-latest
     outputs:
-      sha-tag: ${{ fromJSON(steps.meta.outputs.json).labels['deploy-tag'] }}
+      sha-tag: ${{ fromJSON(steps.meta.outputs.json).tags[1] }}
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
@@ -46,8 +46,6 @@ jobs:
         images: |
           ${{ steps.login-ecr.outputs.registry }}/cinema-bot-ric
           ghcr.io/${{ github.repository }}
-        labels: |
-            deploy-tag=sha-{{sha}}
         tags: |
           type=sha
           type=ref,event=branch
