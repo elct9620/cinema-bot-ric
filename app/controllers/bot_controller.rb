@@ -27,7 +27,7 @@ class BotController < ApplicationController
   def verify_signature
     @body = request.body.read
     signature = request.env['HTTP_X_LINE_SIGNATURE']
-    render json: {}, status: :bad_request unless client.validate_signature(body, signature)
+    render json: {}, status: :bad_request unless client.validate_signature(@body, signature)
   end
 
   def client
