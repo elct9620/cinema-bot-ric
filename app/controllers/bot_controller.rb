@@ -18,7 +18,7 @@ class BotController < ApplicationController
 
     events = client.parse_events_from(body)
     events.each do |event|
-      client.reply_message(event['replyToken'], 'PONG!')
+      client.reply_message(event['replyToken'], { type: 'text', text: 'PONG!!' })
     end
 
     head :no_content
