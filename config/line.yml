@@ -1,0 +1,13 @@
+default: &default
+  channel_id: <%= ENV['LINE__CHANNEL_ID'] %>
+  channel_token: <%= ENV['LINE__CHANNEL_ID'] %>
+  channel_secret: <%= ENV['LINE__CHANNEL_SECRET'] %>
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default

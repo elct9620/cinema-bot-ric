@@ -1,5 +1,5 @@
 import { Construct } from 'constructs';
-import { Stack, StackProps } from 'aws-cdk-lib';
+import { Stack, StackProps, CfnParameter } from 'aws-cdk-lib';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
 import * as sqs from 'aws-cdk-lib/aws-sqs';
 import { SqsEventSource } from 'aws-cdk-lib/aws-lambda-event-sources'
@@ -19,7 +19,15 @@ export class CinemaBotStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
-    this.rails = new Rails(this, "CinemaBot")
+    const lineChannelID = new CfnParameter(this, 'LineChannelID')
+    const lineChannelToken = new CfnParameter(this, 'LineChannelToken', { noEcho: true })
+    const lineChannelSecret = new CfnParameter(this, 'LineChannelSecret', { noEcho: true })
+
+    this.rails = new Rails(this, "CinemaBot", {
+      'LINE__CHANNEL_ID': lineChannelID.valueAsString,
+      'LINE__CHANNEL_TOKEN': lineChannelToken.valueAsString,
+      'LINE__CHANNEL_SECRET': lineChannelSecret.valueAsString
+    })
     this.queue = new sqs.Queue(this, "Worker")
 
     this.apiFn = new RailsFunction(this.rails, "Api")
