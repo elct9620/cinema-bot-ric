@@ -32,6 +32,7 @@ gem 'bootsnap', require: false
 gem 'aws_lambda_ric'
 gem 'aws-sdk-rails'
 gem 'lamby'
+gem 'line-bot-api'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
