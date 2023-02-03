@@ -27,10 +27,10 @@ class BotController < ApplicationController
   private
 
   def client
-    @client ||= Line::Bot::Client.new do |config|
-      config.channel_id = config[:channel_id]
-      config.channel_secret = config[:channel_secret]
-      config.channel_token = config[:channel_token]
+    @client ||= Line::Bot::Client.new do |c|
+      c.channel_id = config[:channel_id]
+      c.channel_secret = config[:channel_secret]
+      c.channel_token = config[:channel_token]
     end
   end
 
