@@ -5,5 +5,5 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root 'bot#version'
-  get '/debug', to: 'bot#debug'
+  post '/webhook', to: 'bot#webhook'
 end
